@@ -198,4 +198,6 @@
   'System\\Console\\ThemeRemove' => 'modules/system/console/ThemeRemove.php',
   'System\\Console\\ThemeList' => 'modules/system/console/ThemeList.php',
   'System\\Console\\ThemeUse' => 'modules/system/console/ThemeUse.php',
+  'Backend\\Widgets\\Filter' => 'modules/backend/widgets/Filter.php',
+  'Backend\\Classes\\FilterScope' => 'modules/backend/classes/FilterScope.php',
 );

@@ -2,3 +2,9 @@
 .env.*.php
 .env.php
 .env
+
+storage/cms/cache/
+storage/cms/twig/
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
