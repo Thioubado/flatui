@@ -5,6 +5,7 @@
 
 storage/cms/cache/
 storage/cms/twig/
+storage/cms/combiner/
 storage/logs/
 storage/framework/cache/
 storage/framework/sessions/
