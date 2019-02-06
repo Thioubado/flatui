@@ -201,4 +201,9 @@
   'Backend\\Widgets\\Filter' => 'modules/backend/widgets/Filter.php',
   'Backend\\Classes\\FilterScope' => 'modules/backend/classes/FilterScope.php',
   'RainLab\\Translate\\Classes\\MLContent' => 'plugins/rainlab/translate/classes/MLContent.php',
+  'Backend\\FormWidgets\\DataTable' => 'modules/backend/formwidgets/DataTable.php',
+  'Backend\\Widgets\\Table\\ClientMemoryDataSource' => 'modules/backend/widgets/table/ClientMemoryDataSource.php',
+  'Cms\\Twig\\ComponentNode' => 'modules/cms/twig/ComponentNode.php',
+  'Cms\\Classes\\ComponentPartial' => 'modules/cms/classes/ComponentPartial.php',
+  'Cms\\Helpers\\File' => 'modules/cms/helpers/File.php',
 );
