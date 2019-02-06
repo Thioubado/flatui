@@ -2,53 +2,53 @@ description = "Default layout"
 ==
 <!DOCTYPE html>
 <html>
-    <head>
-    	<meta charset="UTF-8">
-        <title>Flat UI - {{ this.page.title }}</title>
-        <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="description" content="{{ this.page.meta_description }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="OctoberCMS">
-        <meta name="generator" content="OctoberCMS">
-        <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
-        {% styles %}
-        <link href="{{ [
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flat UI - {{ this.page.title }}</title>
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="OctoberCMS">
+    <meta name="generator" content="OctoberCMS">
+    <link rel="icon" type="image/png" href="{{ 'assets/images/logo.png'|theme }}">
+    {% styles %}
+    <link href="{{ [
             'assets/less/theme.less'
         ]|theme }}" rel="stylesheet">
-        
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-		<!--[if lt IE 9]>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
 			<script src="{{ [
 				'assets/javascript/html5shiv.js',
 				'assets/javascript/respond.min.js',
 			]|theme }}"></script>
 		<![endif]-->
-    </head>
-    <body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+</head>
 
-        <!-- Header -->
-        <header id="layout-header" class="header-navbar">
-            <!-- Nav -->
-            {% partial "nav" %}
-        </header>
+<body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
 
-        <!-- Content -->
-        <div id="layout-content">
-            {% page %}
-        </div>
+    <!-- Header -->
+    <!-- Nav -->
+    {% partial "nav" %}
 
-        <!-- Mailing List -->
-        <section id="layout-subscribe" class="subscribe-form">
-            {% partial "subscribe" %}
-        </section>
+    <!-- Content -->
+    <div id="layout-content">
+        {% page %}
+    </div>
 
-        <!-- Footer -->
-        <footer id="layout-footer">
-            {% partial "footer" %}
-        </footer>
+    <!-- Mailing List -->
+    <section id="layout-subscribe" class="subscribe-form">
+        {% partial "subscribe" %}
+    </section>
 
-        <!-- Scripts -->
-        <script src="{{ [
+    <!-- Footer -->
+    <footer id="layout-footer">
+        {% partial "footer" %}
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ [
             'assets/javascript/jquery.min.js',
             
             'assets/vendor/bootstrap/js/transition.js',
@@ -83,11 +83,12 @@ description = "Default layout"
             
             'assets/javascript/app.js'
         ]|theme }}"></script>
-        <script>
-        	videojs.options.flash.swf = "{{ 'assets/vendor/flat-ui/js/video-js.swf'|theme }}";
-        </script>
-        {% framework extras %}
-        {% scripts %}
+    <script>
+        videojs.options.flash.swf = "{{ 'assets/vendor/flat-ui/js/video-js.swf'|theme }}";
+    </script>
+    {% framework extras %}
+    {% scripts %}
 
-    </body>
+</body>
+
 </html>
