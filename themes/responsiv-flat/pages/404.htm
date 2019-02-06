@@ -10,10 +10,7 @@ layout = "default"
                 <img src="{{ 'assets/images/icons/svg/compas.svg'|theme }}" alt="">
             </div>
             <div class="col-xs-10">
-                <h1>You appear to be lost...</h1>
-                <p>We're very sorry, but the page you requested <em>cannot be found</em> here.</p>
-                <p>Try returning to where you started with this compass.</p>
-                <p><small><em>Error code: 404</em></small>
+                {% content '404' %}
             </div>
         </div>
     </div>
