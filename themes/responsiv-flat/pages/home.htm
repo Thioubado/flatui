@@ -11,10 +11,22 @@ layout = "default"
 
                 <h2>{{ 'The Demo'|_ }}</h2>
 
-                <p><a href='/en'>cette page en En</a></p>
-                <p><a href='/fr'>cette page en Fr</a></p>
-                <p><a href='/de'>cette page en De</a></p>
-                
+                <div id="cadre2col">
+                    <div class="col2">
+                        <p><h4>Cette page en:</h4></p>
+                        <p><a href='/en'>En</a></p>
+                        <p><a href='/fr'>Fr</a></p>
+                        <p><a href='/de'>De</a></p>
+                    </div>
+                    <div class="col2">
+                        <p><h4>Une page statique en:</h4></p>
+                        <p><a href='/en/1'>En</a></p>
+                        <p><a href='/fr/1'>Fr</a></p>
+                        <p><a href='/de/1'>De</a></p>
+                    </div>
+                </div>
+
+
                 <div class="signup-form">
                     <form>
                         <div class="form-group">
@@ -39,7 +51,8 @@ layout = "default"
             </div>
             <div class="col-sm-7 col-sm-offset-1 player-wrapper">
                 <div class="player">
-                    <iframe src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <iframe src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen
+                        mozallowfullscreen allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -64,7 +77,8 @@ layout = "default"
     <div class="row our-services">
         <div class="col-sm-12">
             <h4 class="headline"><span>What we do</span></h4>
-            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper. As dry as a bradman flamin lets throw a cut lunch commando.</p>
+            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper.
+                As dry as a bradman flamin lets throw a cut lunch commando.</p>
 
             {% partial 'services' %}
         </div>
