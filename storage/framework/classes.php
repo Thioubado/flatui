@@ -200,4 +200,5 @@
   'System\\Console\\ThemeUse' => 'modules/system/console/ThemeUse.php',
   'Backend\\Widgets\\Filter' => 'modules/backend/widgets/Filter.php',
   'Backend\\Classes\\FilterScope' => 'modules/backend/classes/FilterScope.php',
+  'RainLab\\Translate\\Classes\\MLContent' => 'plugins/rainlab/translate/classes/MLContent.php',
 );

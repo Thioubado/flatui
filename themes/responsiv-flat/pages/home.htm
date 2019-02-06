@@ -6,54 +6,26 @@ layout = "default"
 <section class="home-title">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <h3>Flat Theme for OctoberCMS</h3>
 
                 <h2>{{ 'The Demo'|_ }}</h2>
 
                 <div id="cadre2col">
                     <div class="col2">
-                        <p><h4>Cette page en:</h4></p>
+                        <h4>Cette page en:</h4>
                         <p><a href='/en'>En</a></p>
                         <p><a href='/fr'>Fr</a></p>
                         <p><a href='/de'>De</a></p>
                     </div>
                     <div class="col2">
-                        <p><h4>Une page statique en:</h4></p>
+                        <h4>Une page statique en:</h4>
                         <p><a href='/en/1'>En</a></p>
                         <p><a href='/fr/1'>Fr</a></p>
                         <p><a href='/de/1'>De</a></p>
                     </div>
                 </div>
 
-
-                <div class="signup-form">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Your E-mail">
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="password" class="form-control" placeholder="Password">
-                            </div>
-                            <div>
-                                <input type="password" class="form-control" placeholder="Confirmation">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-block btn-info">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="additional-links">
-                    By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
-                </div>
-            </div>
-            <div class="col-sm-7 col-sm-offset-1 player-wrapper">
-                <div class="player">
-                    <iframe src="http://player.vimeo.com/video/29568236?color=3498db" webkitallowfullscreen
-                        mozallowfullscreen allowfullscreen></iframe>
-                </div>
             </div>
         </div>
     </div>
@@ -76,11 +48,7 @@ layout = "default"
     <!-- Services -->
     <div class="row our-services">
         <div class="col-sm-12">
-            <h4 class="headline"><span>What we do</span></h4>
-            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper.
-                As dry as a bradman flamin lets throw a cut lunch commando.</p>
-
-            {% partial 'services' %}
+            {% content 'home-intro' %}
         </div>
     </div>
 
