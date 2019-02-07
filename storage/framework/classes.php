@@ -206,4 +206,9 @@
   'Cms\\Twig\\ComponentNode' => 'modules/cms/twig/ComponentNode.php',
   'Cms\\Classes\\ComponentPartial' => 'modules/cms/classes/ComponentPartial.php',
   'Cms\\Helpers\\File' => 'modules/cms/helpers/File.php',
+  'rainlab\\blog\\Plugin' => 'plugins/rainlab/blog/Plugin.php',
+  'RainLab\\Blog\\Models\\Post' => 'plugins/rainlab/blog/models/Post.php',
+  'RainLab\\Translate\\Behaviors\\TranslatableModel' => 'plugins/rainlab/translate/behaviors/TranslatableModel.php',
+  'RainLab\\Blog\\Classes\\TagProcessor' => 'plugins/rainlab/blog/classes/TagProcessor.php',
+  'RainLab\\Blog\\Models\\Category' => 'plugins/rainlab/blog/models/Category.php',
 );
