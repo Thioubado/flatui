@@ -211,4 +211,6 @@
   'RainLab\\Translate\\Behaviors\\TranslatableModel' => 'plugins/rainlab/translate/behaviors/TranslatableModel.php',
   'RainLab\\Blog\\Classes\\TagProcessor' => 'plugins/rainlab/blog/classes/TagProcessor.php',
   'RainLab\\Blog\\Models\\Category' => 'plugins/rainlab/blog/models/Category.php',
+  'rainlab\\blogvideo\\Plugin' => 'plugins/rainlab/blogvideo/Plugin.php',
+  'RainLab\\Blog\\Controllers\\Posts' => 'plugins/rainlab/blog/controllers/Posts.php',
 );
