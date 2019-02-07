@@ -213,4 +213,10 @@
   'RainLab\\Blog\\Models\\Category' => 'plugins/rainlab/blog/models/Category.php',
   'rainlab\\blogvideo\\Plugin' => 'plugins/rainlab/blogvideo/Plugin.php',
   'RainLab\\Blog\\Controllers\\Posts' => 'plugins/rainlab/blog/controllers/Posts.php',
+  'RainLab\\Blog\\Models\\PostImport' => 'plugins/rainlab/blog/models/PostImport.php',
+  'RainLab\\Blog\\Models\\PostExport' => 'plugins/rainlab/blog/models/PostExport.php',
+  'RainLab\\Blog\\Components\\Post' => 'plugins/rainlab/blog/components/Post.php',
+  'RainLab\\Blog\\Components\\Posts' => 'plugins/rainlab/blog/components/Posts.php',
+  'RainLab\\Blog\\Components\\Categories' => 'plugins/rainlab/blog/components/Categories.php',
+  'RainLab\\Blog\\Components\\RssFeed' => 'plugins/rainlab/blog/components/RssFeed.php',
 );
