@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mer. 06 fév. 2019 à 12:50
+-- Généré le :  jeu. 07 fév. 2019 à 01:05
 -- Version du serveur :  10.1.37-MariaDB
 -- Version de PHP :  7.2.12
 
@@ -413,9 +413,11 @@ CREATE TABLE `rainlab_translate_messages` (
 
 INSERT INTO `rainlab_translate_messages` (`id`, `code`, `message_data`) VALUES
 (1, 'the.demo', '{\"x\":\"The Demo\",\"fr\":\"La D\\u00e9monstration\",\"de\":\"Das Demo\"}'),
-(2, 'blog', '{\"x\":\"Blog\",\"fr\":\"Sujets\"}'),
-(3, 'about', '{\"x\":\"About\",\"fr\":\"&Agrave; notre sujet\"}'),
-(4, 'about.us', '{\"x\":\"About us\",\"fr\":\"&Agrave; notre sujet\"}');
+(2, 'blog', '{\"x\":\"Blog\",\"fr\":\"Sujets\",\"de\":\"Blog\"}'),
+(3, 'about', '{\"x\":\"About\",\"fr\":\"&Agrave; notre sujet\",\"de\":\"\\u00dcber uns\"}'),
+(4, 'about.us', '{\"x\":\"About us\",\"fr\":\"&Agrave; notre sujet\",\"de\":\"\\u00dcber uns\"}'),
+(5, 'this.page.in', '{\"x\":\"This page in\",\"fr\":\"Cette page en\",\"de\":\"Diese Seite in\"}'),
+(6, 'one.static.page.in', '{\"x\":\"One static page in\",\"fr\":\"Une page statique en\",\"de\":\"Ein static Seite\"}');
 
 -- --------------------------------------------------------
 
@@ -1081,7 +1083,7 @@ ALTER TABLE `rainlab_translate_locales`
 -- AUTO_INCREMENT pour la table `rainlab_translate_messages`
 --
 ALTER TABLE `rainlab_translate_messages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `system_event_logs`
