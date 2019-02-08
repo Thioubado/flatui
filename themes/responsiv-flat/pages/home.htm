@@ -1,8 +1,16 @@
 title = "Demonstration"
 url = "/"
 layout = "default"
-==
+is_hidden = 0
 
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 1
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
 <section class="home-title">
     <div class="container">
         <div class="row">
@@ -30,7 +38,9 @@ layout = "default"
         </div>
     </div>
 </section>
-
+<!-- Latest blog post -->
+<h3>Latest from the blog</h3>
+{% component 'blogPosts' %}
 <section class="logos">
     <div class="container">
         <div><img src="{{ 'assets/images/logos/mashable.png'|theme }}" alt=""></div>
