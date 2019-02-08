@@ -219,4 +219,9 @@
   'RainLab\\Blog\\Components\\Posts' => 'plugins/rainlab/blog/components/Posts.php',
   'RainLab\\Blog\\Components\\Categories' => 'plugins/rainlab/blog/components/Categories.php',
   'RainLab\\Blog\\Components\\RssFeed' => 'plugins/rainlab/blog/components/RssFeed.php',
+  'Backend\\FormWidgets\\Relation' => 'modules/backend/formwidgets/Relation.php',
+  'Backend\\FormWidgets\\DatePicker' => 'modules/backend/formwidgets/DatePicker.php',
+  'Backend\\FormWidgets\\MarkdownEditor' => 'modules/backend/formwidgets/MarkdownEditor.php',
+  'RainLab\\Blog\\FormWidgets\\BlogMarkdown' => 'plugins/rainlab/blog/formwidgets/BlogMarkdown.php',
+  'RainLab\\Blog\\FormWidgets\\MLBlogMarkdown' => 'plugins/rainlab/blog/formwidgets/MLBlogMarkdown.php',
 );
