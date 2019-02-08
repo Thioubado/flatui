@@ -1,5 +1,5 @@
 title = "Blog"
-url = "/blog"
+url = "/blog/:page?"
 layout = "default"
 is_hidden = 0
 
@@ -21,11 +21,11 @@ postPage = "blog/post"
     <div class="row">
         <div class="col-sm-9">
 
-{% component 'blogPosts' %}
+            {% component 'blogPosts' %}
 
-    <div class="clearfix"></div>
+            <div class="clearfix"></div>
 
-                       <!-- Pagination -->
+            <!-- Pagination -->
             <div class="pull-right">
                 <ul class="pagination">
                     <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
