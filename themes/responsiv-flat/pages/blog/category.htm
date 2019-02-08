@@ -1,0 +1,56 @@
+title = "Blog category"
+url = "/blog/category/:slug/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+<section id="layout-title">
+  <div class="container">
+    {% if not category %}
+    <h3>Category not found</h3>
+    {% else %}
+    <h3>{{ category.name }}</h3>
+    {% endif %}
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+
+      {% component 'blogPosts' %}
+
+      <div class="clearfix"></div>
+
+      <!-- Pagination -->
+      <div class="pull-right">
+        <ul class="pagination">
+          <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+          <li class="active"><a href="#fakelink">1</a></li>
+          <li><a href="#fakelink">2</a></li>
+          <li><a href="#fakelink">3</a></li>
+          <li><a href="#fakelink">4</a></li>
+          <li><a href="#fakelink">5</a></li>
+          <li><a href="#fakelink">6</a></li>
+          <li><a href="#fakelink">7</a></li>
+          <li><a href="#fakelink">8</a></li>
+          <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-sm-3">
+
+      {% partial 'blog/sidebar' %}
+
+    </div>
+  </div>
+</div>
