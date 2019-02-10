@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  jeu. 07 fév. 2019 à 01:05
+-- Généré le :  Dim 10 fév. 2019 à 02:25
 -- Version du serveur :  10.1.37-MariaDB
 -- Version de PHP :  7.2.12
 
@@ -345,6 +345,85 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `rainlab_blog_categories`
+--
+
+CREATE TABLE `rainlab_blog_categories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `parent_id` int(10) UNSIGNED DEFAULT NULL,
+  `nest_left` int(11) DEFAULT NULL,
+  `nest_right` int(11) DEFAULT NULL,
+  `nest_depth` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rainlab_blog_categories`
+--
+
+INSERT INTO `rainlab_blog_categories` (`id`, `name`, `slug`, `code`, `description`, `parent_id`, `nest_left`, `nest_right`, `nest_depth`, `created_at`, `updated_at`) VALUES
+(1, 'Non catégorisé', 'uncategorized', NULL, NULL, NULL, 1, 2, 0, '2019-02-06 23:10:17', '2019-02-06 23:10:17'),
+(2, 'News', 'news', NULL, '', NULL, 3, 4, 0, '2019-02-07 16:46:35', '2019-02-07 16:46:35'),
+(3, 'Theme', 'theme', NULL, '', NULL, 5, 6, 0, '2019-02-07 16:46:51', '2019-02-08 11:07:50');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rainlab_blog_posts`
+--
+
+CREATE TABLE `rainlab_blog_posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `excerpt` text COLLATE utf8mb4_unicode_ci,
+  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `content_html` longtext COLLATE utf8mb4_unicode_ci,
+  `published_at` timestamp NULL DEFAULT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `metadata` mediumtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rainlab_blog_posts`
+--
+
+INSERT INTO `rainlab_blog_posts` (`id`, `user_id`, `title`, `slug`, `excerpt`, `content`, `content_html`, `published_at`, `published`, `created_at`, `updated_at`, `metadata`) VALUES
+(1, NULL, 'First blog post', 'first-blog-post', 'The first ever blog post is here. It might be a good idea to update this post with some more relevant content.', 'This is your first ever **blog post**! It might be a good idea to update this post with some more relevant content.\r\n\r\nYou can edit this content by selecting **Blog** from the administration back-end menu.\r\n\r\n*Enjoy the good times!*', '<p>This is your first ever <strong>blog post</strong>! It might be a good idea to update this post with some more relevant content.</p>\n<p>You can edit this content by selecting <strong>Blog</strong> from the administration back-end menu.</p>\n<p><em>Enjoy the good times!</em></p>', '2019-02-06 23:10:17', 1, '2019-02-06 23:10:17', '2019-02-07 16:47:16', NULL),
+(2, 1, 'Last News', 'last-news', 'The very last New.', 'The ever last news.', '<p>The ever last news.</p>', '2019-02-07 12:00:00', 1, '2019-02-07 16:47:48', '2019-02-07 16:48:35', NULL),
+(3, 1, 'A second Theme post', 'second-theme-post', '', 'To see categories counter works.', '<p>To see categories counter works.</p>', '2019-02-08 10:15:09', 1, '2019-02-08 10:14:53', '2019-02-08 10:57:04', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rainlab_blog_posts_categories`
+--
+
+CREATE TABLE `rainlab_blog_posts_categories` (
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rainlab_blog_posts_categories`
+--
+
+INSERT INTO `rainlab_blog_posts_categories` (`post_id`, `category_id`) VALUES
+(1, 3),
+(2, 2),
+(3, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `rainlab_translate_attributes`
 --
 
@@ -355,6 +434,22 @@ CREATE TABLE `rainlab_translate_attributes` (
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attribute_data` mediumtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rainlab_translate_attributes`
+--
+
+INSERT INTO `rainlab_translate_attributes` (`id`, `locale`, `model_id`, `model_type`, `attribute_data`) VALUES
+(1, 'fr', '2', 'RainLab\\Blog\\Models\\Category', '{\"name\":\"\",\"slug\":\"news\",\"description\":\"\"}'),
+(2, 'de', '2', 'RainLab\\Blog\\Models\\Category', '{\"name\":\"\",\"slug\":\"news\",\"description\":\"\"}'),
+(3, 'fr', '3', 'RainLab\\Blog\\Models\\Category', '{\"name\":\"Thème\",\"slug\":\"theme\",\"description\":\"\"}'),
+(4, 'de', '3', 'RainLab\\Blog\\Models\\Category', '{\"name\":\"Thema\",\"slug\":\"thema\",\"description\":\"\"}'),
+(5, 'fr', '1', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"\",\"content\":\"\",\"content_html\":\"\",\"excerpt\":\"\"}'),
+(6, 'de', '1', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"\",\"content\":\"\",\"content_html\":\"\",\"excerpt\":\"\"}'),
+(7, 'fr', '2', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"last-news\",\"content\":\"\",\"content_html\":\"\",\"excerpt\":\"\"}'),
+(8, 'de', '2', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"last-news\",\"content\":\"\",\"content_html\":\"\",\"excerpt\":\"\"}'),
+(9, 'fr', '3', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"second-theme-post\",\"content\":\"Pour voir le compteur des catégories fonctionner.\",\"content_html\":\"<p>Pour voir le compteur des catégories fonctionner.<\\/p>\",\"excerpt\":\"\"}'),
+(10, 'de', '3', 'RainLab\\Blog\\Models\\Post', '{\"title\":\"\",\"slug\":\"second-theme-post\",\"content\":\"Um Kategorien zu sehen, arbeiten Werke.\",\"content_html\":\"<p>Um Kategorien zu sehen, arbeiten Werke.<\\/p>\",\"excerpt\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -370,6 +465,20 @@ CREATE TABLE `rainlab_translate_indexes` (
   `item` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `value` mediumtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `rainlab_translate_indexes`
+--
+
+INSERT INTO `rainlab_translate_indexes` (`id`, `locale`, `model_id`, `model_type`, `item`, `value`) VALUES
+(1, 'fr', '2', 'RainLab\\Blog\\Models\\Category', 'slug', 'news'),
+(2, 'de', '2', 'RainLab\\Blog\\Models\\Category', 'slug', 'news'),
+(3, 'fr', '3', 'RainLab\\Blog\\Models\\Category', 'slug', 'theme'),
+(4, 'de', '3', 'RainLab\\Blog\\Models\\Category', 'slug', 'thema'),
+(5, 'fr', '2', 'RainLab\\Blog\\Models\\Post', 'slug', 'last-news'),
+(6, 'de', '2', 'RainLab\\Blog\\Models\\Post', 'slug', 'last-news'),
+(7, 'fr', '3', 'RainLab\\Blog\\Models\\Post', 'slug', 'second-theme-post'),
+(8, 'de', '3', 'RainLab\\Blog\\Models\\Post', 'slug', 'second-theme-post');
 
 -- --------------------------------------------------------
 
@@ -560,7 +669,7 @@ INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VA
 (4, 'system', 'project', 'owner', '\"GrCOTE7\"'),
 (5, 'system', 'core', 'hash', '\"b4b79ec07b137e6c84605ac76f616781\"'),
 (6, 'system', 'core', 'build', '\"446\"'),
-(7, 'system', 'update', 'retry', '1549532184'),
+(7, 'system', 'update', 'retry', '1549647950'),
 (8, 'system', 'theme', 'history', '{\"Responsiv.Flat\":\"responsiv-flat\"}'),
 (9, 'cms', 'theme', 'active', '\"responsiv-flat\"');
 
@@ -683,7 +792,58 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (97, 'RainLab.Translate', 'comment', '1.4.3', '!!! Please update OctoberCMS to Build 444 before updating this plugin. Added ability to translate CMS Pages fields (e.g. title, description, meta-title, meta-description)', '2019-01-20 10:44:21'),
 (98, 'RainLab.Translate', 'comment', '1.4.4', 'Minor improvements to compatibility with Laravel framework.', '2019-01-20 10:44:21'),
 (99, 'RainLab.Translate', 'comment', '1.4.5', 'Fixed issue when using the language switcher', '2019-01-20 10:44:21'),
-(100, 'October.Demo', 'comment', '1.0.1', 'First version of Demo', '2019-01-20 10:44:22');
+(100, 'October.Demo', 'comment', '1.0.1', 'First version of Demo', '2019-01-20 10:44:22'),
+(101, 'RainLab.Blog', 'script', '1.0.1', 'create_posts_table.php', '2019-02-06 23:10:16'),
+(102, 'RainLab.Blog', 'script', '1.0.1', 'create_categories_table.php', '2019-02-06 23:10:17'),
+(103, 'RainLab.Blog', 'script', '1.0.1', 'seed_all_tables.php', '2019-02-06 23:10:17'),
+(104, 'RainLab.Blog', 'comment', '1.0.1', 'Initialize plugin.', '2019-02-06 23:10:17'),
+(105, 'RainLab.Blog', 'comment', '1.0.2', 'Added the processed HTML content column to the posts table.', '2019-02-06 23:10:17'),
+(106, 'RainLab.Blog', 'comment', '1.0.3', 'Category component has been merged with Posts component.', '2019-02-06 23:10:17'),
+(107, 'RainLab.Blog', 'comment', '1.0.4', 'Improvements to the Posts list management UI.', '2019-02-06 23:10:18'),
+(108, 'RainLab.Blog', 'comment', '1.0.5', 'Removes the Author column from blog post list.', '2019-02-06 23:10:18'),
+(109, 'RainLab.Blog', 'comment', '1.0.6', 'Featured images now appear in the Post component.', '2019-02-06 23:10:18'),
+(110, 'RainLab.Blog', 'comment', '1.0.7', 'Added support for the Static Pages menus.', '2019-02-06 23:10:18'),
+(111, 'RainLab.Blog', 'comment', '1.0.8', 'Added total posts to category list.', '2019-02-06 23:10:18'),
+(112, 'RainLab.Blog', 'comment', '1.0.9', 'Added support for the Sitemap plugin.', '2019-02-06 23:10:18'),
+(113, 'RainLab.Blog', 'comment', '1.0.10', 'Added permission to prevent users from seeing posts they did not create.', '2019-02-06 23:10:18'),
+(114, 'RainLab.Blog', 'comment', '1.0.11', 'Deprecate \"idParam\" component property in favour of \"slug\" property.', '2019-02-06 23:10:18'),
+(115, 'RainLab.Blog', 'comment', '1.0.12', 'Fixes issue where images cannot be uploaded caused by latest Markdown library.', '2019-02-06 23:10:18'),
+(116, 'RainLab.Blog', 'comment', '1.0.13', 'Fixes problem with providing pages to Sitemap and Pages plugins.', '2019-02-06 23:10:18'),
+(117, 'RainLab.Blog', 'comment', '1.0.14', 'Add support for CSRF protection feature added to core.', '2019-02-06 23:10:18'),
+(118, 'RainLab.Blog', 'comment', '1.1.0', 'Replaced the Post editor with the new core Markdown editor.', '2019-02-06 23:10:18'),
+(119, 'RainLab.Blog', 'comment', '1.1.1', 'Posts can now be imported and exported.', '2019-02-06 23:10:18'),
+(120, 'RainLab.Blog', 'comment', '1.1.2', 'Posts are no longer visible if the published date has not passed.', '2019-02-06 23:10:19'),
+(121, 'RainLab.Blog', 'comment', '1.1.3', 'Added a New Post shortcut button to the blog menu.', '2019-02-06 23:10:19'),
+(122, 'RainLab.Blog', 'script', '1.2.0', 'categories_add_nested_fields.php', '2019-02-06 23:10:19'),
+(123, 'RainLab.Blog', 'comment', '1.2.0', 'Categories now support nesting.', '2019-02-06 23:10:19'),
+(124, 'RainLab.Blog', 'comment', '1.2.1', 'Post slugs now must be unique.', '2019-02-06 23:10:19'),
+(125, 'RainLab.Blog', 'comment', '1.2.2', 'Fixes issue on new installs.', '2019-02-06 23:10:19'),
+(126, 'RainLab.Blog', 'comment', '1.2.3', 'Minor user interface update.', '2019-02-06 23:10:19'),
+(127, 'RainLab.Blog', 'script', '1.2.4', 'update_timestamp_nullable.php', '2019-02-06 23:10:20'),
+(128, 'RainLab.Blog', 'comment', '1.2.4', 'Database maintenance. Updated all timestamp columns to be nullable.', '2019-02-06 23:10:20'),
+(129, 'RainLab.Blog', 'comment', '1.2.5', 'Added translation support for blog posts.', '2019-02-06 23:10:20'),
+(130, 'RainLab.Blog', 'comment', '1.2.6', 'The published field can now supply a time with the date.', '2019-02-06 23:10:20'),
+(131, 'RainLab.Blog', 'comment', '1.2.7', 'Introduced a new RSS feed component.', '2019-02-06 23:10:20'),
+(132, 'RainLab.Blog', 'comment', '1.2.8', 'Fixes issue with translated `content_html` attribute on blog posts.', '2019-02-06 23:10:20'),
+(133, 'RainLab.Blog', 'comment', '1.2.9', 'Added translation support for blog categories.', '2019-02-06 23:10:20'),
+(134, 'RainLab.Blog', 'comment', '1.2.10', 'Added translation support for post slugs.', '2019-02-06 23:10:20'),
+(135, 'RainLab.Blog', 'comment', '1.2.11', 'Fixes bug where excerpt is not translated.', '2019-02-06 23:10:20'),
+(136, 'RainLab.Blog', 'comment', '1.2.12', 'Description field added to category form.', '2019-02-06 23:10:20'),
+(137, 'RainLab.Blog', 'comment', '1.2.13', 'Improved support for Static Pages menus, added a blog post and all blog posts.', '2019-02-06 23:10:20'),
+(138, 'RainLab.Blog', 'comment', '1.2.14', 'Added post exception property to the post list component, useful for showing related posts.', '2019-02-06 23:10:20'),
+(139, 'RainLab.Blog', 'comment', '1.2.15', 'Back-end navigation sort order updated.', '2019-02-06 23:10:20'),
+(140, 'RainLab.Blog', 'comment', '1.2.16', 'Added `nextPost` and `previousPost` to the blog post component.', '2019-02-06 23:10:20'),
+(141, 'RainLab.Blog', 'comment', '1.2.17', 'Improved the next and previous logic to sort by the published date.', '2019-02-06 23:10:20'),
+(142, 'RainLab.Blog', 'comment', '1.2.18', 'Minor change to internals.', '2019-02-06 23:10:20'),
+(143, 'RainLab.Blog', 'comment', '1.2.19', 'Improved support for Build 420+', '2019-02-06 23:10:21'),
+(144, 'RainLab.Blog', 'script', '1.3.0', 'posts_add_metadata.php', '2019-02-06 23:10:22'),
+(145, 'RainLab.Blog', 'comment', '1.3.0', 'Added metadata column for plugins to store data in', '2019-02-06 23:10:22'),
+(146, 'RainLab.Blog', 'comment', '1.3.1', 'Fixed metadata column not being jsonable', '2019-02-06 23:10:22'),
+(147, 'RainLab.BlogVideo', 'comment', '1.0.1', 'First version of Blog Video plugin', '2019-02-07 03:31:47'),
+(148, 'RainLab.BlogVideo', 'comment', '1.0.2', 'Fixes issue where videos cannot be uploaded caused by latest Markdown library.', '2019-02-07 03:31:47'),
+(149, 'RainLab.BlogVideo', 'comment', '1.1.0', 'Adds a new Video button to the Markdown editor toolbar.', '2019-02-07 03:31:47'),
+(150, 'RainLab.BlogVideo', 'comment', '1.1.1', 'Minor styling update.', '2019-02-07 03:31:47'),
+(151, 'RainLab.BlogVideo', 'comment', '1.1.2', 'Update toolbar icon.', '2019-02-07 03:31:47');
 
 -- --------------------------------------------------------
 
@@ -707,7 +867,9 @@ CREATE TABLE `system_plugin_versions` (
 INSERT INTO `system_plugin_versions` (`id`, `code`, `version`, `created_at`, `is_disabled`, `is_frozen`) VALUES
 (1, 'RainLab.Pages', '1.2.20', '2019-01-20 10:44:07', 0, 0),
 (2, 'RainLab.Translate', '1.4.5', '2019-01-20 10:44:22', 0, 0),
-(3, 'October.Demo', '1.0.1', '2019-01-20 10:44:22', 0, 0);
+(3, 'October.Demo', '1.0.1', '2019-01-20 10:44:22', 0, 0),
+(4, 'RainLab.Blog', '1.3.1', '2019-02-06 23:10:22', 0, 0),
+(5, 'RainLab.BlogVideo', '1.1.2', '2019-02-07 03:31:47', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -865,6 +1027,28 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `rainlab_blog_categories`
+--
+ALTER TABLE `rainlab_blog_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rainlab_blog_categories_slug_index` (`slug`),
+  ADD KEY `rainlab_blog_categories_parent_id_index` (`parent_id`);
+
+--
+-- Index pour la table `rainlab_blog_posts`
+--
+ALTER TABLE `rainlab_blog_posts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rainlab_blog_posts_user_id_index` (`user_id`),
+  ADD KEY `rainlab_blog_posts_slug_index` (`slug`);
+
+--
+-- Index pour la table `rainlab_blog_posts_categories`
+--
+ALTER TABLE `rainlab_blog_posts_categories`
+  ADD PRIMARY KEY (`post_id`,`category_id`);
 
 --
 -- Index pour la table `rainlab_translate_attributes`
@@ -1062,16 +1246,28 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
+-- AUTO_INCREMENT pour la table `rainlab_blog_categories`
+--
+ALTER TABLE `rainlab_blog_categories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `rainlab_blog_posts`
+--
+ALTER TABLE `rainlab_blog_posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `rainlab_translate_attributes`
 --
 ALTER TABLE `rainlab_translate_attributes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `rainlab_translate_indexes`
 --
 ALTER TABLE `rainlab_translate_indexes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `rainlab_translate_locales`
@@ -1125,13 +1321,13 @@ ALTER TABLE `system_parameters`
 -- AUTO_INCREMENT pour la table `system_plugin_history`
 --
 ALTER TABLE `system_plugin_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT pour la table `system_plugin_versions`
 --
 ALTER TABLE `system_plugin_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `system_request_logs`
